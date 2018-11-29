@@ -1,0 +1,1570 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FunShowModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FunShow.dbo.AcAttendance”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="AcAttendance">
+          <Key>
+            <PropertyRef Name="AcAttendId" />
+            <PropertyRef Name="ActiId" />
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="AcAttendId" Type="int" Nullable="false" />
+          <Property Name="ActiId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActiId" />
+          </Key>
+          <Property Name="ActiId" Type="int" Nullable="false" />
+          <Property Name="AvtiTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ActiContent" Type="nvarchar(max)" />
+          <Property Name="ActiTime" Type="datetime" Nullable="false" />
+          <Property Name="ActiAddress" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ActiForm" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FunShow.dbo.AdAttendance”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="AdAttendance">
+          <Key>
+            <PropertyRef Name="AdAttendId" />
+            <PropertyRef Name="AdvId" />
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="AdAttendId" Type="int" Nullable="false" />
+          <Property Name="AdvId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvId" />
+          </Key>
+          <Property Name="AdvId" Type="int" Nullable="false" />
+          <Property Name="AdvContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="StarId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="GoodId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartId" />
+          </Key>
+          <Property Name="CartId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="GoodId" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="float" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Concern">
+          <Key>
+            <PropertyRef Name="ConcernId" />
+          </Key>
+          <Property Name="ConcernId" Type="int" Nullable="false" />
+          <Property Name="ConTime" Type="datetime" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GComment">
+          <Key>
+            <PropertyRef Name="GComId" />
+          </Key>
+          <Property Name="GComId" Type="int" Nullable="false" />
+          <Property Name="GoodId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="GComTime" Type="datetime" Nullable="false" />
+          <Property Name="GComContent" Type="nvarchar" MaxLength="140" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodId" />
+          </Key>
+          <Property Name="GoodId" Type="int" Nullable="false" />
+          <Property Name="GoodsName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="GPrice" Type="float" Nullable="false" />
+          <Property Name="GImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="Describle" Type="nvarchar(max)" />
+          <Property Name="GoodsNum" Type="int" />
+        </EntityType>
+        <EntityType Name="GReplyComment">
+          <Key>
+            <PropertyRef Name="GReplyId" />
+          </Key>
+          <Property Name="GReplyId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="GRepTime" Type="datetime" Nullable="false" />
+          <Property Name="GRepContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="GComId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Leavewords">
+          <Key>
+            <PropertyRef Name="LeaveId" />
+          </Key>
+          <Property Name="LeaveId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="LeaveContent" Type="nvarchar" MaxLength="140" Nullable="false" />
+          <Property Name="LeaveTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="int" Nullable="false" />
+          <Property Name="NewsTitle" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="NewsContent" Type="nvarchar(max)" />
+          <Property Name="NewsImage" Type="nvarchar" MaxLength="50" />
+          <Property Name="NewsTime" Type="datetime" />
+          <Property Name="StarId" Type="int" Nullable="false" />
+          <Property Name="StarName" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Opus">
+          <Key>
+            <PropertyRef Name="OpusId" />
+          </Key>
+          <Property Name="OpusId" Type="int" Nullable="false" />
+          <Property Name="OpusName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="OpusImage" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ShowTime" Type="datetime" />
+          <Property Name="OType" Type="nvarchar" MaxLength="50" />
+          <Property Name="link" Type="nvarchar(max)" />
+          <Property Name="StarId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemsId" />
+          </Key>
+          <Property Name="OrderItemsId" Type="int" Nullable="false" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="GoodId" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="float" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="OrderTime" Type="datetime" Nullable="false" />
+          <Property Name="Amount" Type="float" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="SponId" />
+          </Key>
+          <Property Name="SponId" Type="int" Nullable="false" />
+          <Property Name="SponTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SponContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="SponImage" Type="nvarchar" MaxLength="500" />
+          <Property Name="SponBeginTime" Type="datetime" Nullable="false" />
+          <Property Name="SponEndTime" Type="datetime" Nullable="false" />
+          <Property Name="SponEmail" Type="nchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StarInfo">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="int" Nullable="false" />
+          <Property Name="StarName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SSex" Type="nchar" MaxLength="1" Nullable="false" />
+          <Property Name="SBirth" Type="datetime" />
+          <Property Name="OpusId" Type="int" Nullable="false" />
+          <Property Name="NewsId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="UsrName" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="UsrPwd" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="UsrPhoto" Type="nvarchar" MaxLength="100" />
+          <Property Name="UsrSex" Type="nchar" MaxLength="1" />
+          <Property Name="UsrBirth" Type="datetime" />
+          <Property Name="UsrEmail" Type="nvarchar" MaxLength="50" />
+          <Property Name="UsrPhone" Type="nvarchar" MaxLength="50" />
+          <Property Name="UsrFlag" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VComments">
+          <Key>
+            <PropertyRef Name="VComId" />
+          </Key>
+          <Property Name="VComId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="VComTime" Type="datetime" Nullable="false" />
+          <Property Name="VComContent" Type="nvarchar" MaxLength="140" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="int" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="VTitle" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="VContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="VType" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VUploadTime" Type="datetime" />
+          <Property Name="UpdateTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="VReplyComment">
+          <Key>
+            <PropertyRef Name="VReplyId" />
+          </Key>
+          <Property Name="VReplyId" Type="int" Nullable="false" />
+          <Property Name="VRepTime" Type="datetime" Nullable="false" />
+          <Property Name="VRepContent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UsrId" Type="int" Nullable="false" />
+          <Property Name="VideoId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__AcAttenda__ActiI__403A8C7D">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="AcAttendance" Type="Self.AcAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActiId" />
+            </Principal>
+            <Dependent Role="AcAttendance">
+              <PropertyRef Name="ActiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AcAttenda__UsrId__3F466844">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="AcAttendance" Type="Self.AcAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="AcAttendance">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdAttenda__AdvId__4316F928">
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="1" />
+          <End Role="AdAttendance" Type="Self.AdAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisement">
+              <PropertyRef Name="AdvId" />
+            </Principal>
+            <Dependent Role="AdAttendance">
+              <PropertyRef Name="AdvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdAttenda__UsrId__4222D4EF">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="AdAttendance" Type="Self.AdAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="AdAttendance">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__GoodI__30F848ED">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__StarI__300424B4">
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StarInfo">
+              <PropertyRef Name="StarId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="StarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__UsrId__31EC6D26">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__GoodId__1ED998B2">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__UsrId__1DE57479">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Concern__UsrId__3D5E1FD2">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Concern" Type="Self.Concern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Concern">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GComment__GoodId__36B12243">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="GComment" Type="Self.GComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="GComment">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GComment__UsrId__37A5467C">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="GComment" Type="Self.GComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="GComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GReplyCom__GComI__46E78A0C">
+          <End Role="GComment" Type="Self.GComment" Multiplicity="1" />
+          <End Role="GReplyComment" Type="Self.GReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GComment">
+              <PropertyRef Name="GComId" />
+            </Principal>
+            <Dependent Role="GReplyComment">
+              <PropertyRef Name="GComId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GReplyCom__UsrId__45F365D3">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="GReplyComment" Type="Self.GReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="GReplyComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leaveword__UsrId__2B3F6F97">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Leavewords" Type="Self.Leavewords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Leavewords">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__GoodI__25869641">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Order__24927208">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__UsrId__21B6055D">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StarInfo__NewsId__1B0907CE">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="StarInfo">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StarInfo__OpusId__1A14E395">
+          <End Role="Opus" Type="Self.Opus" Multiplicity="1" />
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opus">
+              <PropertyRef Name="OpusId" />
+            </Principal>
+            <Dependent Role="StarInfo">
+              <PropertyRef Name="OpusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VComments__UsrId__3A81B327">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="VComments" Type="Self.VComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="VComments">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Video__UsrId__286302EC">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Video" Type="Self.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VReplyCom__UsrId__49C3F6B7">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="VReplyComment" Type="Self.VReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="VReplyComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VReplyCom__Video__4AB81AF0">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="VReplyComment" Type="Self.VReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="VReplyComment">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FunShowModelStoreContainer">
+          <EntitySet Name="Activity" EntityType="Self.Activity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Concern" EntityType="Self.Concern" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GComment" EntityType="Self.GComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GReplyComment" EntityType="Self.GReplyComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Leavewords" EntityType="Self.Leavewords" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Opus" EntityType="Self.Opus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sponsor" EntityType="Self.Sponsor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StarInfo" EntityType="Self.StarInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usr" EntityType="Self.Usr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VComments" EntityType="Self.VComments" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Video" EntityType="Self.Video" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VReplyComment" EntityType="Self.VReplyComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AcAttendance" EntityType="Self.AcAttendance" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AcAttendance].[AcAttendId] AS [AcAttendId], 
+    [AcAttendance].[ActiId] AS [ActiId], 
+    [AcAttendance].[UsrId] AS [UsrId]
+    FROM [dbo].[AcAttendance] AS [AcAttendance]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AdAttendance" EntityType="Self.AdAttendance" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AdAttendance].[AdAttendId] AS [AdAttendId], 
+    [AdAttendance].[AdvId] AS [AdvId], 
+    [AdAttendance].[UsrId] AS [UsrId]
+    FROM [dbo].[AdAttendance] AS [AdAttendance]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK__AcAttenda__ActiI__403A8C7D" Association="Self.FK__AcAttenda__ActiI__403A8C7D">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="AcAttendance" EntitySet="AcAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AcAttenda__UsrId__3F466844" Association="Self.FK__AcAttenda__UsrId__3F466844">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="AcAttendance" EntitySet="AcAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdAttenda__AdvId__4316F928" Association="Self.FK__AdAttenda__AdvId__4316F928">
+            <End Role="Advertisement" EntitySet="Advertisement" />
+            <End Role="AdAttendance" EntitySet="AdAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdAttenda__UsrId__4222D4EF" Association="Self.FK__AdAttenda__UsrId__4222D4EF">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="AdAttendance" EntitySet="AdAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__GoodI__30F848ED" Association="Self.FK__Advertise__GoodI__30F848ED">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__StarI__300424B4" Association="Self.FK__Advertise__StarI__300424B4">
+            <End Role="StarInfo" EntitySet="StarInfo" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__UsrId__31EC6D26" Association="Self.FK__Advertise__UsrId__31EC6D26">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__GoodId__1ED998B2" Association="Self.FK__Cart__GoodId__1ED998B2">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__UsrId__1DE57479" Association="Self.FK__Cart__UsrId__1DE57479">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Concern__UsrId__3D5E1FD2" Association="Self.FK__Concern__UsrId__3D5E1FD2">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Concern" EntitySet="Concern" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GComment__GoodId__36B12243" Association="Self.FK__GComment__GoodId__36B12243">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="GComment" EntitySet="GComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GComment__UsrId__37A5467C" Association="Self.FK__GComment__UsrId__37A5467C">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="GComment" EntitySet="GComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GReplyCom__GComI__46E78A0C" Association="Self.FK__GReplyCom__GComI__46E78A0C">
+            <End Role="GComment" EntitySet="GComment" />
+            <End Role="GReplyComment" EntitySet="GReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GReplyCom__UsrId__45F365D3" Association="Self.FK__GReplyCom__UsrId__45F365D3">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="GReplyComment" EntitySet="GReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leaveword__UsrId__2B3F6F97" Association="Self.FK__Leaveword__UsrId__2B3F6F97">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Leavewords" EntitySet="Leavewords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__GoodI__25869641" Association="Self.FK__OrderItem__GoodI__25869641">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Order__24927208" Association="Self.FK__OrderItem__Order__24927208">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__UsrId__21B6055D" Association="Self.FK__Orders__UsrId__21B6055D">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StarInfo__NewsId__1B0907CE" Association="Self.FK__StarInfo__NewsId__1B0907CE">
+            <End Role="News" EntitySet="News" />
+            <End Role="StarInfo" EntitySet="StarInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StarInfo__OpusId__1A14E395" Association="Self.FK__StarInfo__OpusId__1A14E395">
+            <End Role="Opus" EntitySet="Opus" />
+            <End Role="StarInfo" EntitySet="StarInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VComments__UsrId__3A81B327" Association="Self.FK__VComments__UsrId__3A81B327">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="VComments" EntitySet="VComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Video__UsrId__286302EC" Association="Self.FK__Video__UsrId__286302EC">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Video" EntitySet="Video" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VReplyCom__UsrId__49C3F6B7" Association="Self.FK__VReplyCom__UsrId__49C3F6B7">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="VReplyComment" EntitySet="VReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VReplyCom__Video__4AB81AF0" Association="Self.FK__VReplyCom__Video__4AB81AF0">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="VReplyComment" EntitySet="VReplyComment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FunShowModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Activity">
+          <Key>
+            <PropertyRef Name="ActiId" />
+          </Key>
+          <Property Name="ActiId" Type="Int32" Nullable="false" />
+          <Property Name="AvtiTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActiContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ActiTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ActiAddress" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActiForm" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AcAttendance" Relationship="Self.FK__AcAttenda__ActiI__403A8C7D" FromRole="Activity" ToRole="AcAttendance" />
+        </EntityType>
+        <EntityType Name="Advertisement">
+          <Key>
+            <PropertyRef Name="AdvId" />
+          </Key>
+          <Property Name="AdvId" Type="Int32" Nullable="false" />
+          <Property Name="AdvContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="GoodId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AdAttendance" Relationship="Self.FK__AdAttenda__AdvId__4316F928" FromRole="Advertisement" ToRole="AdAttendance" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__Advertise__GoodI__30F848ED" FromRole="Advertisement" ToRole="Goods" />
+          <NavigationProperty Name="StarInfo" Relationship="Self.FK__Advertise__StarI__300424B4" FromRole="Advertisement" ToRole="StarInfo" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Advertise__UsrId__31EC6D26" FromRole="Advertisement" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Cart">
+          <Key>
+            <PropertyRef Name="CartId" />
+          </Key>
+          <Property Name="CartId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="GoodId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Double" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__Cart__GoodId__1ED998B2" FromRole="Cart" ToRole="Goods" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Cart__UsrId__1DE57479" FromRole="Cart" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Concern">
+          <Key>
+            <PropertyRef Name="ConcernId" />
+          </Key>
+          <Property Name="ConcernId" Type="Int32" Nullable="false" />
+          <Property Name="ConTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Concern__UsrId__3D5E1FD2" FromRole="Concern" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="GComment">
+          <Key>
+            <PropertyRef Name="GComId" />
+          </Key>
+          <Property Name="GComId" Type="Int32" Nullable="false" />
+          <Property Name="GoodId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="GComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GComContent" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__GComment__GoodId__36B12243" FromRole="GComment" ToRole="Goods" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__GComment__UsrId__37A5467C" FromRole="GComment" ToRole="Usr" />
+          <NavigationProperty Name="GReplyComment" Relationship="Self.FK__GReplyCom__GComI__46E78A0C" FromRole="GComment" ToRole="GReplyComment" />
+        </EntityType>
+        <EntityType Name="Goods">
+          <Key>
+            <PropertyRef Name="GoodId" />
+          </Key>
+          <Property Name="GoodId" Type="Int32" Nullable="false" />
+          <Property Name="GoodsName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GPrice" Type="Double" Nullable="false" />
+          <Property Name="GImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Describle" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GoodsNum" Type="Int32" />
+          <NavigationProperty Name="Advertisement" Relationship="Self.FK__Advertise__GoodI__30F848ED" FromRole="Goods" ToRole="Advertisement" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK__Cart__GoodId__1ED998B2" FromRole="Goods" ToRole="Cart" />
+          <NavigationProperty Name="GComment" Relationship="Self.FK__GComment__GoodId__36B12243" FromRole="Goods" ToRole="GComment" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__GoodI__25869641" FromRole="Goods" ToRole="OrderItems" />
+        </EntityType>
+        <EntityType Name="GReplyComment">
+          <Key>
+            <PropertyRef Name="GReplyId" />
+          </Key>
+          <Property Name="GReplyId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="GRepTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="GRepContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="GComId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="GComment" Relationship="Self.FK__GReplyCom__GComI__46E78A0C" FromRole="GReplyComment" ToRole="GComment" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__GReplyCom__UsrId__45F365D3" FromRole="GReplyComment" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Leavewords">
+          <Key>
+            <PropertyRef Name="LeaveId" />
+          </Key>
+          <Property Name="LeaveId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="LeaveContent" Type="String" MaxLength="140" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LeaveTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Leaveword__UsrId__2B3F6F97" FromRole="Leavewords" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="NewsId" />
+          </Key>
+          <Property Name="NewsId" Type="Int32" Nullable="false" />
+          <Property Name="NewsTitle" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="NewsContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NewsImage" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NewsTime" Type="DateTime" Precision="3" />
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="StarName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="StarInfo" Relationship="Self.FK__StarInfo__NewsId__1B0907CE" FromRole="News" ToRole="StarInfo" />
+        </EntityType>
+        <EntityType Name="Opus">
+          <Key>
+            <PropertyRef Name="OpusId" />
+          </Key>
+          <Property Name="OpusId" Type="Int32" Nullable="false" />
+          <Property Name="OpusName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="OpusImage" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ShowTime" Type="DateTime" Precision="3" />
+          <Property Name="OType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="StarInfo" Relationship="Self.FK__StarInfo__OpusId__1A14E395" FromRole="Opus" ToRole="StarInfo" />
+        </EntityType>
+        <EntityType Name="OrderItems">
+          <Key>
+            <PropertyRef Name="OrderItemsId" />
+          </Key>
+          <Property Name="OrderItemsId" Type="Int32" Nullable="false" />
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="GoodId" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Double" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Goods" Relationship="Self.FK__OrderItem__GoodI__25869641" FromRole="OrderItems" ToRole="Goods" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__OrderItem__Order__24927208" FromRole="OrderItems" ToRole="Orders" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" />
+          <Property Name="OrderTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Amount" Type="Double" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="OrderItems" Relationship="Self.FK__OrderItem__Order__24927208" FromRole="Orders" ToRole="OrderItems" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Orders__UsrId__21B6055D" FromRole="Orders" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Sponsor">
+          <Key>
+            <PropertyRef Name="SponId" />
+          </Key>
+          <Property Name="SponId" Type="Int32" Nullable="false" />
+          <Property Name="SponTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SponContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SponImage" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SponBeginTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SponEndTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SponEmail" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StarInfo">
+          <Key>
+            <PropertyRef Name="StarId" />
+          </Key>
+          <Property Name="StarId" Type="Int32" Nullable="false" />
+          <Property Name="StarName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SSex" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SBirth" Type="DateTime" Precision="3" />
+          <Property Name="OpusId" Type="Int32" Nullable="false" />
+          <Property Name="NewsId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisement" Relationship="Self.FK__Advertise__StarI__300424B4" FromRole="StarInfo" ToRole="Advertisement" />
+          <NavigationProperty Name="News" Relationship="Self.FK__StarInfo__NewsId__1B0907CE" FromRole="StarInfo" ToRole="News" />
+          <NavigationProperty Name="Opus" Relationship="Self.FK__StarInfo__OpusId__1A14E395" FromRole="StarInfo" ToRole="Opus" />
+        </EntityType>
+        <EntityType Name="Usr">
+          <Key>
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="UsrName" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="UsrPwd" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="UsrPhoto" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UsrSex" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="UsrBirth" Type="DateTime" Precision="3" />
+          <Property Name="UsrEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UsrPhone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UsrFlag" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisement" Relationship="Self.FK__Advertise__UsrId__31EC6D26" FromRole="Usr" ToRole="Advertisement" />
+          <NavigationProperty Name="Cart" Relationship="Self.FK__Cart__UsrId__1DE57479" FromRole="Usr" ToRole="Cart" />
+          <NavigationProperty Name="Concern" Relationship="Self.FK__Concern__UsrId__3D5E1FD2" FromRole="Usr" ToRole="Concern" />
+          <NavigationProperty Name="GComment" Relationship="Self.FK__GComment__UsrId__37A5467C" FromRole="Usr" ToRole="GComment" />
+          <NavigationProperty Name="GReplyComment" Relationship="Self.FK__GReplyCom__UsrId__45F365D3" FromRole="Usr" ToRole="GReplyComment" />
+          <NavigationProperty Name="Leavewords" Relationship="Self.FK__Leaveword__UsrId__2B3F6F97" FromRole="Usr" ToRole="Leavewords" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK__Orders__UsrId__21B6055D" FromRole="Usr" ToRole="Orders" />
+          <NavigationProperty Name="AcAttendance" Relationship="Self.FK__AcAttenda__UsrId__3F466844" FromRole="Usr" ToRole="AcAttendance" />
+          <NavigationProperty Name="AdAttendance" Relationship="Self.FK__AdAttenda__UsrId__4222D4EF" FromRole="Usr" ToRole="AdAttendance" />
+          <NavigationProperty Name="VComments" Relationship="Self.FK__VComments__UsrId__3A81B327" FromRole="Usr" ToRole="VComments" />
+          <NavigationProperty Name="Video" Relationship="Self.FK__Video__UsrId__286302EC" FromRole="Usr" ToRole="Video" />
+          <NavigationProperty Name="VReplyComment" Relationship="Self.FK__VReplyCom__UsrId__49C3F6B7" FromRole="Usr" ToRole="VReplyComment" />
+        </EntityType>
+        <EntityType Name="VComments">
+          <Key>
+            <PropertyRef Name="VComId" />
+          </Key>
+          <Property Name="VComId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="VComTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VComContent" Type="String" MaxLength="140" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__VComments__UsrId__3A81B327" FromRole="VComments" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="Video">
+          <Key>
+            <PropertyRef Name="VideoId" />
+          </Key>
+          <Property Name="VideoId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="VTitle" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VUploadTime" Type="DateTime" Precision="3" />
+          <Property Name="UpdateTime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__Video__UsrId__286302EC" FromRole="Video" ToRole="Usr" />
+          <NavigationProperty Name="VReplyComment" Relationship="Self.FK__VReplyCom__Video__4AB81AF0" FromRole="Video" ToRole="VReplyComment" />
+        </EntityType>
+        <EntityType Name="VReplyComment">
+          <Key>
+            <PropertyRef Name="VReplyId" />
+          </Key>
+          <Property Name="VReplyId" Type="Int32" Nullable="false" />
+          <Property Name="VRepTime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="VRepContent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <Property Name="VideoId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__VReplyCom__UsrId__49C3F6B7" FromRole="VReplyComment" ToRole="Usr" />
+          <NavigationProperty Name="Video" Relationship="Self.FK__VReplyCom__Video__4AB81AF0" FromRole="VReplyComment" ToRole="Video" />
+        </EntityType>
+        <EntityType Name="AcAttendance">
+          <Key>
+            <PropertyRef Name="AcAttendId" />
+            <PropertyRef Name="ActiId" />
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="AcAttendId" Type="Int32" Nullable="false" />
+          <Property Name="ActiId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Activity" Relationship="Self.FK__AcAttenda__ActiI__403A8C7D" FromRole="AcAttendance" ToRole="Activity" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__AcAttenda__UsrId__3F466844" FromRole="AcAttendance" ToRole="Usr" />
+        </EntityType>
+        <EntityType Name="AdAttendance">
+          <Key>
+            <PropertyRef Name="AdAttendId" />
+            <PropertyRef Name="AdvId" />
+            <PropertyRef Name="UsrId" />
+          </Key>
+          <Property Name="AdAttendId" Type="Int32" Nullable="false" />
+          <Property Name="AdvId" Type="Int32" Nullable="false" />
+          <Property Name="UsrId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Advertisement" Relationship="Self.FK__AdAttenda__AdvId__4316F928" FromRole="AdAttendance" ToRole="Advertisement" />
+          <NavigationProperty Name="Usr" Relationship="Self.FK__AdAttenda__UsrId__4222D4EF" FromRole="AdAttendance" ToRole="Usr" />
+        </EntityType>
+        <Association Name="FK__AcAttenda__ActiI__403A8C7D">
+          <End Role="Activity" Type="Self.Activity" Multiplicity="1" />
+          <End Role="AcAttendance" Type="Self.AcAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Activity">
+              <PropertyRef Name="ActiId" />
+            </Principal>
+            <Dependent Role="AcAttendance">
+              <PropertyRef Name="ActiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdAttenda__AdvId__4316F928">
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="1" />
+          <End Role="AdAttendance" Type="Self.AdAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Advertisement">
+              <PropertyRef Name="AdvId" />
+            </Principal>
+            <Dependent Role="AdAttendance">
+              <PropertyRef Name="AdvId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__GoodI__30F848ED">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__StarI__300424B4">
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StarInfo">
+              <PropertyRef Name="StarId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="StarId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Advertise__UsrId__31EC6D26">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Advertisement" Type="Self.Advertisement" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Advertisement">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__GoodId__1ED998B2">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Cart__UsrId__1DE57479">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Cart" Type="Self.Cart" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Cart">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Concern__UsrId__3D5E1FD2">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Concern" Type="Self.Concern" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Concern">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GComment__GoodId__36B12243">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="GComment" Type="Self.GComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="GComment">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GComment__UsrId__37A5467C">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="GComment" Type="Self.GComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="GComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GReplyCom__GComI__46E78A0C">
+          <End Role="GComment" Type="Self.GComment" Multiplicity="1" />
+          <End Role="GReplyComment" Type="Self.GReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GComment">
+              <PropertyRef Name="GComId" />
+            </Principal>
+            <Dependent Role="GReplyComment">
+              <PropertyRef Name="GComId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__GoodI__25869641">
+          <End Role="Goods" Type="Self.Goods" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Goods">
+              <PropertyRef Name="GoodId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="GoodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GReplyCom__UsrId__45F365D3">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="GReplyComment" Type="Self.GReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="GReplyComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Leaveword__UsrId__2B3F6F97">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Leavewords" Type="Self.Leavewords" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Leavewords">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StarInfo__NewsId__1B0907CE">
+          <End Role="News" Type="Self.News" Multiplicity="1" />
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="News">
+              <PropertyRef Name="NewsId" />
+            </Principal>
+            <Dependent Role="StarInfo">
+              <PropertyRef Name="NewsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__StarInfo__OpusId__1A14E395">
+          <End Role="Opus" Type="Self.Opus" Multiplicity="1" />
+          <End Role="StarInfo" Type="Self.StarInfo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Opus">
+              <PropertyRef Name="OpusId" />
+            </Principal>
+            <Dependent Role="StarInfo">
+              <PropertyRef Name="OpusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__OrderItem__Order__24927208">
+          <End Role="Orders" Type="Self.Orders" Multiplicity="1" />
+          <End Role="OrderItems" Type="Self.OrderItems" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Orders">
+              <PropertyRef Name="OrderId" />
+            </Principal>
+            <Dependent Role="OrderItems">
+              <PropertyRef Name="OrderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Orders__UsrId__21B6055D">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AcAttenda__UsrId__3F466844">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="AcAttendance" Type="Self.AcAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="AcAttendance">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__AdAttenda__UsrId__4222D4EF">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="AdAttendance" Type="Self.AdAttendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="AdAttendance">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VComments__UsrId__3A81B327">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="VComments" Type="Self.VComments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="VComments">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Video__UsrId__286302EC">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="Video" Type="Self.Video" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="Video">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VReplyCom__UsrId__49C3F6B7">
+          <End Role="Usr" Type="Self.Usr" Multiplicity="1" />
+          <End Role="VReplyComment" Type="Self.VReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usr">
+              <PropertyRef Name="UsrId" />
+            </Principal>
+            <Dependent Role="VReplyComment">
+              <PropertyRef Name="UsrId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__VReplyCom__Video__4AB81AF0">
+          <End Role="Video" Type="Self.Video" Multiplicity="1" />
+          <End Role="VReplyComment" Type="Self.VReplyComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Video">
+              <PropertyRef Name="VideoId" />
+            </Principal>
+            <Dependent Role="VReplyComment">
+              <PropertyRef Name="VideoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FunShowEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Activity" EntityType="Self.Activity" />
+          <EntitySet Name="Advertisement" EntityType="Self.Advertisement" />
+          <EntitySet Name="Cart" EntityType="Self.Cart" />
+          <EntitySet Name="Concern" EntityType="Self.Concern" />
+          <EntitySet Name="GComment" EntityType="Self.GComment" />
+          <EntitySet Name="Goods" EntityType="Self.Goods" />
+          <EntitySet Name="GReplyComment" EntityType="Self.GReplyComment" />
+          <EntitySet Name="Leavewords" EntityType="Self.Leavewords" />
+          <EntitySet Name="News" EntityType="Self.News" />
+          <EntitySet Name="Opus" EntityType="Self.Opus" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItems" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" />
+          <EntitySet Name="Sponsor" EntityType="Self.Sponsor" />
+          <EntitySet Name="StarInfo" EntityType="Self.StarInfo" />
+          <EntitySet Name="Usr" EntityType="Self.Usr" />
+          <EntitySet Name="VComments" EntityType="Self.VComments" />
+          <EntitySet Name="Video" EntityType="Self.Video" />
+          <EntitySet Name="VReplyComment" EntityType="Self.VReplyComment" />
+          <EntitySet Name="AcAttendance" EntityType="Self.AcAttendance" />
+          <EntitySet Name="AdAttendance" EntityType="Self.AdAttendance" />
+          <AssociationSet Name="FK__AcAttenda__ActiI__403A8C7D" Association="Self.FK__AcAttenda__ActiI__403A8C7D">
+            <End Role="Activity" EntitySet="Activity" />
+            <End Role="AcAttendance" EntitySet="AcAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdAttenda__AdvId__4316F928" Association="Self.FK__AdAttenda__AdvId__4316F928">
+            <End Role="Advertisement" EntitySet="Advertisement" />
+            <End Role="AdAttendance" EntitySet="AdAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__GoodI__30F848ED" Association="Self.FK__Advertise__GoodI__30F848ED">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__StarI__300424B4" Association="Self.FK__Advertise__StarI__300424B4">
+            <End Role="StarInfo" EntitySet="StarInfo" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Advertise__UsrId__31EC6D26" Association="Self.FK__Advertise__UsrId__31EC6D26">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Advertisement" EntitySet="Advertisement" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__GoodId__1ED998B2" Association="Self.FK__Cart__GoodId__1ED998B2">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Cart__UsrId__1DE57479" Association="Self.FK__Cart__UsrId__1DE57479">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Cart" EntitySet="Cart" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Concern__UsrId__3D5E1FD2" Association="Self.FK__Concern__UsrId__3D5E1FD2">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Concern" EntitySet="Concern" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GComment__GoodId__36B12243" Association="Self.FK__GComment__GoodId__36B12243">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="GComment" EntitySet="GComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GComment__UsrId__37A5467C" Association="Self.FK__GComment__UsrId__37A5467C">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="GComment" EntitySet="GComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GReplyCom__GComI__46E78A0C" Association="Self.FK__GReplyCom__GComI__46E78A0C">
+            <End Role="GComment" EntitySet="GComment" />
+            <End Role="GReplyComment" EntitySet="GReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__GoodI__25869641" Association="Self.FK__OrderItem__GoodI__25869641">
+            <End Role="Goods" EntitySet="Goods" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GReplyCom__UsrId__45F365D3" Association="Self.FK__GReplyCom__UsrId__45F365D3">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="GReplyComment" EntitySet="GReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Leaveword__UsrId__2B3F6F97" Association="Self.FK__Leaveword__UsrId__2B3F6F97">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Leavewords" EntitySet="Leavewords" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StarInfo__NewsId__1B0907CE" Association="Self.FK__StarInfo__NewsId__1B0907CE">
+            <End Role="News" EntitySet="News" />
+            <End Role="StarInfo" EntitySet="StarInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__StarInfo__OpusId__1A14E395" Association="Self.FK__StarInfo__OpusId__1A14E395">
+            <End Role="Opus" EntitySet="Opus" />
+            <End Role="StarInfo" EntitySet="StarInfo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__OrderItem__Order__24927208" Association="Self.FK__OrderItem__Order__24927208">
+            <End Role="Orders" EntitySet="Orders" />
+            <End Role="OrderItems" EntitySet="OrderItems" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Orders__UsrId__21B6055D" Association="Self.FK__Orders__UsrId__21B6055D">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AcAttenda__UsrId__3F466844" Association="Self.FK__AcAttenda__UsrId__3F466844">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="AcAttendance" EntitySet="AcAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__AdAttenda__UsrId__4222D4EF" Association="Self.FK__AdAttenda__UsrId__4222D4EF">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="AdAttendance" EntitySet="AdAttendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VComments__UsrId__3A81B327" Association="Self.FK__VComments__UsrId__3A81B327">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="VComments" EntitySet="VComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Video__UsrId__286302EC" Association="Self.FK__Video__UsrId__286302EC">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="Video" EntitySet="Video" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VReplyCom__UsrId__49C3F6B7" Association="Self.FK__VReplyCom__UsrId__49C3F6B7">
+            <End Role="Usr" EntitySet="Usr" />
+            <End Role="VReplyComment" EntitySet="VReplyComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK__VReplyCom__Video__4AB81AF0" Association="Self.FK__VReplyCom__Video__4AB81AF0">
+            <End Role="Video" EntitySet="Video" />
+            <End Role="VReplyComment" EntitySet="VReplyComment" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FunShowModelStoreContainer" CdmEntityContainer="FunShowEntities">
+          <EntitySetMapping Name="Activity">
+            <EntityTypeMapping TypeName="FunShowModel.Activity">
+              <MappingFragment StoreEntitySet="Activity">
+                <ScalarProperty Name="ActiId" ColumnName="ActiId" />
+                <ScalarProperty Name="AvtiTitle" ColumnName="AvtiTitle" />
+                <ScalarProperty Name="ActiContent" ColumnName="ActiContent" />
+                <ScalarProperty Name="ActiTime" ColumnName="ActiTime" />
+                <ScalarProperty Name="ActiAddress" ColumnName="ActiAddress" />
+                <ScalarProperty Name="ActiForm" ColumnName="ActiForm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Advertisement">
+            <EntityTypeMapping TypeName="FunShowModel.Advertisement">
+              <MappingFragment StoreEntitySet="Advertisement">
+                <ScalarProperty Name="AdvId" ColumnName="AdvId" />
+                <ScalarProperty Name="AdvContent" ColumnName="AdvContent" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cart">
+            <EntityTypeMapping TypeName="FunShowModel.Cart">
+              <MappingFragment StoreEntitySet="Cart">
+                <ScalarProperty Name="CartId" ColumnName="CartId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Concern">
+            <EntityTypeMapping TypeName="FunShowModel.Concern">
+              <MappingFragment StoreEntitySet="Concern">
+                <ScalarProperty Name="ConcernId" ColumnName="ConcernId" />
+                <ScalarProperty Name="ConTime" ColumnName="ConTime" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GComment">
+            <EntityTypeMapping TypeName="FunShowModel.GComment">
+              <MappingFragment StoreEntitySet="GComment">
+                <ScalarProperty Name="GComId" ColumnName="GComId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="GComTime" ColumnName="GComTime" />
+                <ScalarProperty Name="GComContent" ColumnName="GComContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Goods">
+            <EntityTypeMapping TypeName="FunShowModel.Goods">
+              <MappingFragment StoreEntitySet="Goods">
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+                <ScalarProperty Name="GPrice" ColumnName="GPrice" />
+                <ScalarProperty Name="GImage" ColumnName="GImage" />
+                <ScalarProperty Name="Describle" ColumnName="Describle" />
+                <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GReplyComment">
+            <EntityTypeMapping TypeName="FunShowModel.GReplyComment">
+              <MappingFragment StoreEntitySet="GReplyComment">
+                <ScalarProperty Name="GReplyId" ColumnName="GReplyId" />
+                <ScalarProperty Name="GRepTime" ColumnName="GRepTime" />
+                <ScalarProperty Name="GRepContent" ColumnName="GRepContent" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="GComId" ColumnName="GComId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Leavewords">
+            <EntityTypeMapping TypeName="FunShowModel.Leavewords">
+              <MappingFragment StoreEntitySet="Leavewords">
+                <ScalarProperty Name="LeaveId" ColumnName="LeaveId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="LeaveContent" ColumnName="LeaveContent" />
+                <ScalarProperty Name="LeaveTime" ColumnName="LeaveTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="FunShowModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+                <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+                <ScalarProperty Name="NewsContent" ColumnName="NewsContent" />
+                <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
+                <ScalarProperty Name="NewsTime" ColumnName="NewsTime" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+                <ScalarProperty Name="StarName" ColumnName="StarName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Opus">
+            <EntityTypeMapping TypeName="FunShowModel.Opus">
+              <MappingFragment StoreEntitySet="Opus">
+                <ScalarProperty Name="OpusId" ColumnName="OpusId" />
+                <ScalarProperty Name="OpusName" ColumnName="OpusName" />
+                <ScalarProperty Name="OpusImage" ColumnName="OpusImage" />
+                <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+                <ScalarProperty Name="OType" ColumnName="OType" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="FunShowModel.OrderItems">
+              <MappingFragment StoreEntitySet="OrderItems">
+                <ScalarProperty Name="OrderItemsId" ColumnName="OrderItemsId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="FunShowModel.Orders">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sponsor">
+            <EntityTypeMapping TypeName="FunShowModel.Sponsor">
+              <MappingFragment StoreEntitySet="Sponsor">
+                <ScalarProperty Name="SponId" ColumnName="SponId" />
+                <ScalarProperty Name="SponTitle" ColumnName="SponTitle" />
+                <ScalarProperty Name="SponContent" ColumnName="SponContent" />
+                <ScalarProperty Name="SponImage" ColumnName="SponImage" />
+                <ScalarProperty Name="SponBeginTime" ColumnName="SponBeginTime" />
+                <ScalarProperty Name="SponEndTime" ColumnName="SponEndTime" />
+                <ScalarProperty Name="SponEmail" ColumnName="SponEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StarInfo">
+            <EntityTypeMapping TypeName="FunShowModel.StarInfo">
+              <MappingFragment StoreEntitySet="StarInfo">
+                <ScalarProperty Name="StarId" ColumnName="StarId" />
+                <ScalarProperty Name="StarName" ColumnName="StarName" />
+                <ScalarProperty Name="SSex" ColumnName="SSex" />
+                <ScalarProperty Name="SBirth" ColumnName="SBirth" />
+                <ScalarProperty Name="OpusId" ColumnName="OpusId" />
+                <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usr">
+            <EntityTypeMapping TypeName="FunShowModel.Usr">
+              <MappingFragment StoreEntitySet="Usr">
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="UsrName" ColumnName="UsrName" />
+                <ScalarProperty Name="UsrPwd" ColumnName="UsrPwd" />
+                <ScalarProperty Name="UsrPhoto" ColumnName="UsrPhoto" />
+                <ScalarProperty Name="UsrSex" ColumnName="UsrSex" />
+                <ScalarProperty Name="UsrBirth" ColumnName="UsrBirth" />
+                <ScalarProperty Name="UsrEmail" ColumnName="UsrEmail" />
+                <ScalarProperty Name="UsrPhone" ColumnName="UsrPhone" />
+                <ScalarProperty Name="UsrFlag" ColumnName="UsrFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VComments">
+            <EntityTypeMapping TypeName="FunShowModel.VComments">
+              <MappingFragment StoreEntitySet="VComments">
+                <ScalarProperty Name="VComId" ColumnName="VComId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="VComTime" ColumnName="VComTime" />
+                <ScalarProperty Name="VComContent" ColumnName="VComContent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Video">
+            <EntityTypeMapping TypeName="FunShowModel.Video">
+              <MappingFragment StoreEntitySet="Video">
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="VTitle" ColumnName="VTitle" />
+                <ScalarProperty Name="VContent" ColumnName="VContent" />
+                <ScalarProperty Name="VType" ColumnName="VType" />
+                <ScalarProperty Name="VUploadTime" ColumnName="VUploadTime" />
+                <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VReplyComment">
+            <EntityTypeMapping TypeName="FunShowModel.VReplyComment">
+              <MappingFragment StoreEntitySet="VReplyComment">
+                <ScalarProperty Name="VReplyId" ColumnName="VReplyId" />
+                <ScalarProperty Name="VRepTime" ColumnName="VRepTime" />
+                <ScalarProperty Name="VRepContent" ColumnName="VRepContent" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+                <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AcAttendance">
+            <EntityTypeMapping TypeName="FunShowModel.AcAttendance">
+              <MappingFragment StoreEntitySet="AcAttendance">
+                <ScalarProperty Name="AcAttendId" ColumnName="AcAttendId" />
+                <ScalarProperty Name="ActiId" ColumnName="ActiId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AdAttendance">
+            <EntityTypeMapping TypeName="FunShowModel.AdAttendance">
+              <MappingFragment StoreEntitySet="AdAttendance">
+                <ScalarProperty Name="AdAttendId" ColumnName="AdAttendId" />
+                <ScalarProperty Name="AdvId" ColumnName="AdvId" />
+                <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

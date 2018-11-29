@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FunShowModelStoreContainer" CdmEntityContainer="FunShowEntities">
+    <EntitySetMapping Name="Activity">
+      <EntityTypeMapping TypeName="FunShowModel.Activity">
+        <MappingFragment StoreEntitySet="Activity">
+          <ScalarProperty Name="ActiId" ColumnName="ActiId" />
+          <ScalarProperty Name="AvtiTitle" ColumnName="AvtiTitle" />
+          <ScalarProperty Name="ActiContent" ColumnName="ActiContent" />
+          <ScalarProperty Name="ActiTime" ColumnName="ActiTime" />
+          <ScalarProperty Name="ActiAddress" ColumnName="ActiAddress" />
+          <ScalarProperty Name="ActiForm" ColumnName="ActiForm" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Advertisement">
+      <EntityTypeMapping TypeName="FunShowModel.Advertisement">
+        <MappingFragment StoreEntitySet="Advertisement">
+          <ScalarProperty Name="AdvId" ColumnName="AdvId" />
+          <ScalarProperty Name="AdvContent" ColumnName="AdvContent" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cart">
+      <EntityTypeMapping TypeName="FunShowModel.Cart">
+        <MappingFragment StoreEntitySet="Cart">
+          <ScalarProperty Name="CartId" ColumnName="CartId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Concern">
+      <EntityTypeMapping TypeName="FunShowModel.Concern">
+        <MappingFragment StoreEntitySet="Concern">
+          <ScalarProperty Name="ConcernId" ColumnName="ConcernId" />
+          <ScalarProperty Name="ConTime" ColumnName="ConTime" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GComment">
+      <EntityTypeMapping TypeName="FunShowModel.GComment">
+        <MappingFragment StoreEntitySet="GComment">
+          <ScalarProperty Name="GComId" ColumnName="GComId" />
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="GComTime" ColumnName="GComTime" />
+          <ScalarProperty Name="GComContent" ColumnName="GComContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Goods">
+      <EntityTypeMapping TypeName="FunShowModel.Goods">
+        <MappingFragment StoreEntitySet="Goods">
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="GoodsName" ColumnName="GoodsName" />
+          <ScalarProperty Name="GPrice" ColumnName="GPrice" />
+          <ScalarProperty Name="GImage" ColumnName="GImage" />
+          <ScalarProperty Name="Describle" ColumnName="Describle" />
+          <ScalarProperty Name="GoodsNum" ColumnName="GoodsNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GReplyComment">
+      <EntityTypeMapping TypeName="FunShowModel.GReplyComment">
+        <MappingFragment StoreEntitySet="GReplyComment">
+          <ScalarProperty Name="GReplyId" ColumnName="GReplyId" />
+          <ScalarProperty Name="GRepTime" ColumnName="GRepTime" />
+          <ScalarProperty Name="GRepContent" ColumnName="GRepContent" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="GComId" ColumnName="GComId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Leavewords">
+      <EntityTypeMapping TypeName="FunShowModel.Leavewords">
+        <MappingFragment StoreEntitySet="Leavewords">
+          <ScalarProperty Name="LeaveId" ColumnName="LeaveId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="LeaveContent" ColumnName="LeaveContent" />
+          <ScalarProperty Name="LeaveTime" ColumnName="LeaveTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="FunShowModel.News">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+          <ScalarProperty Name="NewsTitle" ColumnName="NewsTitle" />
+          <ScalarProperty Name="NewsContent" ColumnName="NewsContent" />
+          <ScalarProperty Name="NewsImage" ColumnName="NewsImage" />
+          <ScalarProperty Name="NewsTime" ColumnName="NewsTime" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
+          <ScalarProperty Name="StarName" ColumnName="StarName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Opus">
+      <EntityTypeMapping TypeName="FunShowModel.Opus">
+        <MappingFragment StoreEntitySet="Opus">
+          <ScalarProperty Name="OpusId" ColumnName="OpusId" />
+          <ScalarProperty Name="OpusName" ColumnName="OpusName" />
+          <ScalarProperty Name="OpusImage" ColumnName="OpusImage" />
+          <ScalarProperty Name="ShowTime" ColumnName="ShowTime" />
+          <ScalarProperty Name="OType" ColumnName="OType" />
+          <ScalarProperty Name="link" ColumnName="link" />
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="FunShowModel.OrderItems">
+        <MappingFragment StoreEntitySet="OrderItems">
+          <ScalarProperty Name="OrderItemsId" ColumnName="OrderItemsId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="GoodId" ColumnName="GoodId" />
+          <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+          <ScalarProperty Name="Number" ColumnName="Number" />
+          <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="FunShowModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sponsor">
+      <EntityTypeMapping TypeName="FunShowModel.Sponsor">
+        <MappingFragment StoreEntitySet="Sponsor">
+          <ScalarProperty Name="SponId" ColumnName="SponId" />
+          <ScalarProperty Name="SponTitle" ColumnName="SponTitle" />
+          <ScalarProperty Name="SponContent" ColumnName="SponContent" />
+          <ScalarProperty Name="SponImage" ColumnName="SponImage" />
+          <ScalarProperty Name="SponBeginTime" ColumnName="SponBeginTime" />
+          <ScalarProperty Name="SponEndTime" ColumnName="SponEndTime" />
+          <ScalarProperty Name="SponEmail" ColumnName="SponEmail" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StarInfo">
+      <EntityTypeMapping TypeName="FunShowModel.StarInfo">
+        <MappingFragment StoreEntitySet="StarInfo">
+          <ScalarProperty Name="StarId" ColumnName="StarId" />
+          <ScalarProperty Name="StarName" ColumnName="StarName" />
+          <ScalarProperty Name="SSex" ColumnName="SSex" />
+          <ScalarProperty Name="SBirth" ColumnName="SBirth" />
+          <ScalarProperty Name="OpusId" ColumnName="OpusId" />
+          <ScalarProperty Name="NewsId" ColumnName="NewsId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usr">
+      <EntityTypeMapping TypeName="FunShowModel.Usr">
+        <MappingFragment StoreEntitySet="Usr">
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="UsrName" ColumnName="UsrName" />
+          <ScalarProperty Name="UsrPwd" ColumnName="UsrPwd" />
+          <ScalarProperty Name="UsrPhoto" ColumnName="UsrPhoto" />
+          <ScalarProperty Name="UsrSex" ColumnName="UsrSex" />
+          <ScalarProperty Name="UsrBirth" ColumnName="UsrBirth" />
+          <ScalarProperty Name="UsrEmail" ColumnName="UsrEmail" />
+          <ScalarProperty Name="UsrPhone" ColumnName="UsrPhone" />
+          <ScalarProperty Name="UsrFlag" ColumnName="UsrFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VComments">
+      <EntityTypeMapping TypeName="FunShowModel.VComments">
+        <MappingFragment StoreEntitySet="VComments">
+          <ScalarProperty Name="VComId" ColumnName="VComId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="VComTime" ColumnName="VComTime" />
+          <ScalarProperty Name="VComContent" ColumnName="VComContent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Video">
+      <EntityTypeMapping TypeName="FunShowModel.Video">
+        <MappingFragment StoreEntitySet="Video">
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="VTitle" ColumnName="VTitle" />
+          <ScalarProperty Name="VContent" ColumnName="VContent" />
+          <ScalarProperty Name="VType" ColumnName="VType" />
+          <ScalarProperty Name="VUploadTime" ColumnName="VUploadTime" />
+          <ScalarProperty Name="UpdateTime" ColumnName="UpdateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VReplyComment">
+      <EntityTypeMapping TypeName="FunShowModel.VReplyComment">
+        <MappingFragment StoreEntitySet="VReplyComment">
+          <ScalarProperty Name="VReplyId" ColumnName="VReplyId" />
+          <ScalarProperty Name="VRepTime" ColumnName="VRepTime" />
+          <ScalarProperty Name="VRepContent" ColumnName="VRepContent" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+          <ScalarProperty Name="VideoId" ColumnName="VideoId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AcAttendance">
+      <EntityTypeMapping TypeName="FunShowModel.AcAttendance">
+        <MappingFragment StoreEntitySet="AcAttendance">
+          <ScalarProperty Name="AcAttendId" ColumnName="AcAttendId" />
+          <ScalarProperty Name="ActiId" ColumnName="ActiId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AdAttendance">
+      <EntityTypeMapping TypeName="FunShowModel.AdAttendance">
+        <MappingFragment StoreEntitySet="AdAttendance">
+          <ScalarProperty Name="AdAttendId" ColumnName="AdAttendId" />
+          <ScalarProperty Name="AdvId" ColumnName="AdvId" />
+          <ScalarProperty Name="UsrId" ColumnName="UsrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

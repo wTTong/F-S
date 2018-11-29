@@ -1,0 +1,63 @@
+﻿@model FunShow.Models.Usr
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>饭秀-登录</title>
+    <link href="~/Content/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <h1>Welcome to FunShow</h1>
+            @using (Html.BeginForm("Login", "Login", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken();
+                <form class="form">
+                    @Html.TextBoxFor(m => m.UsrId, new { @id = "txtUser", placeholder = "用户号", style = "height: 20px;width: 40%;", maxlength = "32" })
+                    @Html.TextBoxFor(m => m.UsrPwd, new { @id = "txtPassword", placeholder = "密码", type = "password", style = "height: 20px;width: 40%;@*float: left;*@", maxlength = "20" })
+                    @*<span class="iconfont showpassword" style="display: none;font-size: 40px;">&#xe80b;</span>
+                        <span class="iconfont hidepassword" style="display: block;font-size: 40px;">&#xe6a2;</span>*@
+                    <button type="submit" class="btn btn-success" style="height:20px;width:40%">登录</button>
+                    @*<div class="checkbox">
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.LabelFor(m => m.RememberMe)
+                        </div>*@
+                    <label class="wjmm">忘记密码</label>
+                    <p>
+                        @*<label class="register">注册为新用户</label>*@
+                        @Html.ActionLink("注册为新用户", "Register", new { style = "background-color:blue" })
+                    </p>
+                </form>
+            }
+        </div>
+        <ul class="bg-bubbles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    @*<script type="text/javascript">
+        $('#login-button').click(function(event){
+            event.preventDefault();
+            $('form').fadeOut(500);
+            $('.wrapper').addClass('form-success');
+        });
+            </script>*@
+
+</body>
+</html>
+
+
