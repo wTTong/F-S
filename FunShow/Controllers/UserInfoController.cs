@@ -45,5 +45,22 @@ namespace FunShow.Controllers
             return View();
 
         }
+         public ActionResult Register()
+        {
+            return View();
+        }
+        //POST
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register([Bind(Include = "UsrId,UsrName,UsrPwd")] Usr usr)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Usr.Add(usr);
+                db.SaveChanges(); 
+                return RedirectToAction("Index");
+            }
+            return View(usr);
+        }
     }
 }
